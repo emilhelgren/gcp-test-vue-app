@@ -2,11 +2,14 @@ steps:
 - name: node:18.12.0
   entrypoint: npm
   args: ["install"]
+  dir: "lib"
 - name: node:18.12.0
   entrypoint: npm
   args: ["run", "build"]
+  dir: "lib"
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   args: ["app", "deploy"]
+  dir: "lib"
 timeout: "1600s"
 options:
   logging: CLOUD_LOGGING_ONLY
